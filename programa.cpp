@@ -8,8 +8,8 @@ int main() {
         std::cout << "Pasirinkite galutinio pažymio skaičiavimo metodą: V - vidurkiu grįstas, M - mediana grįstas: ";
         std::getline(std::cin, ivestis);
         if (tikrintiIvesti(ivestis) && ivestis.size() == 1) {
-            pasirinkimas = (char)std::toupper(static_cast<unsigned char>(ivestis[0]));
-            if (pasirinkimas == 'V' || pasirinkimas == 'M') break;
+            pasirinkimas = ivestis[0];
+            if (pasirinkimas == 'V' || pasirinkimas == 'M' || pasirinkimas == 'v' || pasirinkimas == 'm') break;
         }
         std::cout << "Įveskite TIK vieną raidę: V arba M.\n";
     }
