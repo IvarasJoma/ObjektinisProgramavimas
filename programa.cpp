@@ -69,10 +69,10 @@ int main() {
         studentas.egzaminoRezultatas = std::stoi(ivestis);
         studentuSarasas.push_back(std::move(studentas));
     }
-    std::cout << std::left << std::setw(15) << "Vardas" << std::setw(15) << "Pavardė" << std::setw(18) << (pasirinkimas == 'V' ? "Galutinis (Vid.)" : "Galutinis (Med.)") << "\n";
+    std::cout << std::left << std::setw(15) << "Vardas" << std::setw(15) << "Pavardė" << std::setw(18) << (pasirinkimas == 'V' || pasirinkimas == 'v' ? "Galutinis (Vid.)" : "Galutinis (Med.)") << "\n";
     std::cout << std::string(48, '-') << "\n";
     for (const auto& studentas : studentuSarasas) {
-        double galutinisRezultatas = (pasirinkimas == 'V') ? skaiciuotiGalutiniVidurki(studentas) : skaiciuotiGalutineMediana(studentas);
+        double galutinisRezultatas = (pasirinkimas == 'V' || pasirinkimas == 'v') ? skaiciuotiGalutiniVidurki(studentas) : skaiciuotiGalutineMediana(studentas);
         std::cout << std::left << std::setw(15) << studentas.Vardas << std::setw(15) << studentas.Pavarde << std::fixed << std::setprecision(2) << galutinisRezultatas << "\n";
     }
     return 0;
