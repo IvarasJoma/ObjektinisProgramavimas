@@ -9,12 +9,12 @@ struct Failai;
 
 std::vector<std::string> nuskaitytiEilutesIVektoriu(const std::string& failas);
 std::vector<StudentasVektorius> nuskaitytiStudentuDuomenisIsFailo(const std::string& failas);
-void nuskaitytiDuomenis(int pasirinkimasNuskaitymo, std::vector<StudentasVektorius>& studentuSarasas);
+void nuskaitytiDuomenis(int pasirinkimasNuskaitymo, std::vector<StudentasVektorius>& studentuSarasas, const std::string& katalogas);
 void vykdytiNuskaitymaIsFailo();
 void irasytiDuomenis(std::vector<StudentasVektorius>& studentuSarasas);
 void irasytiStudentuDuomenisIFaila(const std::vector<StudentasVektorius>& studentuSarasas, int maksimalusNDKiekis, std::string failoPavadinimas);
 void vykdytiSkirstymaIFailus(std::vector<StudentasVektorius>& studentuSarasas);
-void irasytiSuskirstytusStudentusIFailus(const std::vector<StudentasVektorius>& pazangiuSarasas, const std::vector<StudentasVektorius>& silpnuSarasas);
+void irasytiSuskirstytusStudentusIFailus(const std::vector<StudentasVektorius>& pazangiuSarasas, const std::vector<StudentasVektorius>& silpnuSarasas, const char& skaiciavimoMetodas);
 std::vector<std::filesystem::path> gautiTekstiniusFailus(const std::string& katalogas);
 
 #endif

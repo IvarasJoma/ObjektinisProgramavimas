@@ -20,7 +20,7 @@ void vykdytiIvedimoTestavima(){
     int pasirinkimasIsvedimo = nuskaitytiMeniuPasirinkima(ISVEDIMO_MENIU);
     for (int i = 0; i < kartai; ++i){
         studentuSarasas.clear();
-        laikai.nuskaitymas += ismatuotiLaika([&](){nuskaitytiDuomenis(pasirinkimasNuskaitymo, studentuSarasas);});
+        laikai.nuskaitymas += ismatuotiLaika([&](){nuskaitytiDuomenis(pasirinkimasNuskaitymo, studentuSarasas, "tekstiniaiFailai");});
         laikai.skaiciavimas += ismatuotiLaika([&](){apskaiciuotiGalutiniusPazymius(studentuSarasas, skaiciavimoMetodas);});
         laikai.rikiavimas += ismatuotiLaika([&](){rikiuotiStudentus(pasirinkimasRikiavimo, studentuSarasas);});
         laikai.isvedimas += ismatuotiLaika([&](){isvestiStudentus(pasirinkimasIsvedimo, studentuSarasas, skaiciavimoMetodas);});
@@ -33,7 +33,7 @@ void vykdytiDuomenuApdorojimoTestavima(){
     TestoLaikai laikai;
     char skaiciavimoMetodas = nuskaitytiSkaiciavimoMetoda();
     int kartai = nuskaitytiTeigiamaSveikajiSkaiciu("Įveskite norimą testų kiekį ir paspauskite ENTER: ");
-    int pasirinkimasNuskaitymo = nuskaitytiMeniuPasirinkima(gautiNuskaitymoMeniu("tekstiniaiFailai"));
+    int pasirinkimasNuskaitymo = nuskaitytiMeniuPasirinkima(gautiNuskaitymoMeniu("ApdorojimoTyrimuiSkirtiFailai"));
     int pasirinkimasRikiavimoPazangiu = 0;
     int pasirinkimasRikiavimoSilpnu = 0;
     parinktiRikiavimoBudus(pasirinkimasRikiavimoPazangiu, pasirinkimasRikiavimoSilpnu);
@@ -41,12 +41,12 @@ void vykdytiDuomenuApdorojimoTestavima(){
         std::vector<StudentasVektorius> studentuSarasas;
         std::vector<StudentasVektorius> pazangiuSarasas;
         std::vector<StudentasVektorius> silpnuSarasas;
-        laikai.nuskaitymas += ismatuotiLaika([&](){nuskaitytiDuomenis(pasirinkimasNuskaitymo, studentuSarasas);});
+        laikai.nuskaitymas += ismatuotiLaika([&](){nuskaitytiDuomenis(pasirinkimasNuskaitymo, studentuSarasas, "ApdorojimoTyrimuiSkirtiFailai");});
         laikai.skaiciavimas += ismatuotiLaika([&](){
             apskaiciuotiGalutiniusPazymius(studentuSarasas, skaiciavimoMetodas);
             suskirstytiStudentus(studentuSarasas, pazangiuSarasas, silpnuSarasas);});
         laikai.rikiavimas += ismatuotiLaika([&](){rikiuotiSuskirstytusStudentus(pazangiuSarasas, silpnuSarasas, pasirinkimasRikiavimoPazangiu, pasirinkimasRikiavimoSilpnu);});
-        laikai.isvedimas += ismatuotiLaika([&](){irasytiSuskirstytusStudentusIFailus(pazangiuSarasas, silpnuSarasas);});
+        laikai.isvedimas += ismatuotiLaika([&](){irasytiSuskirstytusStudentusIFailus(pazangiuSarasas, silpnuSarasas, skaiciavimoMetodas);});
     }
     gautiVidurki(laikai, kartai);
     spausdintiVidurkius(laikai);
@@ -63,10 +63,11 @@ void vykdytiIsvedimoTestavima(Failai& failai){
     if (pasirinkimasIrasymo == 3) studentuKiekis = 100000;
     if (pasirinkimasIrasymo == 4) studentuKiekis = 1000000;
     if (pasirinkimasIrasymo == 5) studentuKiekis = 10000000;
+    std::string failoPavadinimas = "studentai" + std::to_string(studentuKiekis) + ".txt";
+    std::string pilnasKelias = "FailuKurimoTyrimuiSkirtiFailai/" + failoPavadinimas;
     for (int i = 0; i < kartai; ++i){
         laikai.isvedimas += ismatuotiLaika([&]() {
-            std::string failoPavadinimas = "studentai" + std::to_string(studentuKiekis) + ".txt";
-            std::ofstream failas("tekstiniaiFailai/" + failoPavadinimas);
+            std::ofstream failas(pilnasKelias);
             if (!failas) {
                 throw std::runtime_error("Nepavyko sukurti failo: " + failoPavadinimas);
             }
@@ -90,6 +91,9 @@ void vykdytiIsvedimoTestavima(Failai& failai){
     }
     gautiVidurki(laikai, kartai);
     std::cout << "Vidutinis failo kūrimo ir uždarymo laikas: " << laikai.isvedimas << " s\n";
+    if (std::filesystem::exists(pilnasKelias)) {
+        std::filesystem::remove(pilnasKelias);
+    }
 }
 
 double apskaiciuotiBendraLaika(const TestoLaikai& laikai){ return laikai.nuskaitymas + laikai.skaiciavimas + laikai.rikiavimas + laikai.isvedimas;}
