@@ -116,3 +116,9 @@ Testavimas buvo vykdytas šioje sisteminėje aplinkoje:
 | 1000     | Vector      | 0.0012014     |
 | 1000     | List      | 0.000662875     |
 | 1000     | Deque      | 0.000740708     |
+
+<h3>Programos testavimo nuotraukos</h3>
+<img width="1406" height="1038" alt="image" src="https://github.com/user-attachments/assets/9e8e4a2b-dab9-4423-8e3b-471b7e237ca7" />
+<img width="1406" height="1038" alt="image" src="https://github.com/user-attachments/assets/f4bd920d-5ea2-4bef-bb0f-8dc33d8ef6de" />
+<img width="1406" height="1038" alt="image" src="https://github.com/user-attachments/assets/c5989675-0d73-4740-be62-672f488fac67" />
+
