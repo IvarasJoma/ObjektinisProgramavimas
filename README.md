@@ -124,7 +124,7 @@ Testavimas buvo vykdytas šioje sisteminėje aplinkoje:
 
 <h2>Išvados</h2>
 <ol>
-    <li>1. Konteinerių tyrime std::deque ir std::vector buvo greičiausi konteineriai.</li>
-    <li>2. Studentų skaidymo į du naujus konteinerius veikė lėčiau nei perkėlimo ir ištrynimo strategija. </li>
-    <li>3. 3-oji testavimo strategija (optimizuota antroji) optimaliausiai veikia tik prie mažų duomenų (<1M), kadangi vėliau programos greitaveikai didesnę įtaką daro atminties pralaidumas.</li>
+    <li>Konteinerių tyrime std::deque ir std::vector buvo greičiausi konteineriai.</li>
+    <li>Studentų skaidymo į du naujus konteinerius veikė lėčiau nei perkėlimo ir ištrynimo strategija. </li>
+    <li>3-oji testavimo strategija (optimizuota antroji) optimaliausiai veikia tik prie mažų duomenų (<1M), kadangi vėliau programos greitaveikai didesnę įtaką daro atminties pralaidumas.</li>
 </ol>
