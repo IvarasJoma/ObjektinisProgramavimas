@@ -81,50 +81,52 @@ Testavimas buvo vykdytas šioje sisteminėje aplinkoje:
 
 | Įrašų kiekis | Konteineris | Bendras (s) |
 | ------------ | ----------- | ----------- |
-| 10000000     | Vector      | 2.62363     |
-| 10000000     | List      | 9.84241     |
-| 10000000     | Deque      | 2.43347     |
-| 1000000     | Vector      | 0.249288     |
-| 1000000     | List      | 0.604816     |
-| 1000000     | Deque      | 0.237476     |
-| 100000     | Vector      | 0.0419464     |
-| 100000     | List      | 0.03074     |
-| 100000     | Deque      | 0.0237164     |
-| 10000     | Vector      | 0.02218     |
-| 10000     | List      | 0.00334639     |
-| 10000     | Deque      | 0.00272092     |
-| 1000     | Vector      | 0.00139165     |
-| 1000     | List      | 0.00076532     |
-| 1000     | Deque      | 0.000718876     |
+| 10000000     | Vector      | 2.82279     |
+| 10000000     | List      | 11.8649     |
+| 10000000     | Deque      | 2.35069     |
+| 1000000     | Vector      | 0.257035     |
+| 1000000     | List      | 0.81136     |
+| 1000000     | Deque      | 0.233478     |
+| 100000     | Vector      | 0.0333414    |
+| 100000     | List      | 0.0332578     |
+| 100000     | Deque      | 0.0233894     |
+| 10000     | Vector      | 0.006686     |
+| 10000     | List      | 0.00513514     |
+| 10000     | Deque      | 0.00340925     |
+| 1000     | Vector      | 0.0009305     |
+| 1000     | List      | 0.000728791     |
+| 1000     | Deque      | 0.000778236     |
 
 ## Trečios strategijos tyrimo rezultatai
 
 | Įrašų kiekis | Konteineris | Bendras (s) |
 | ------------ | ----------- | ----------- |
-| 10000000     | Vector      | 2.63152     |
-| 10000000     | List      | 9.53706    |
-| 10000000     | Deque      | 2.3265     |
-| 1000000     | Vector      | 0.252964    |
-| 1000000     | List      | 0.596152     |
-| 1000000     | Deque      | 0.229147     |
-| 100000     | Vector      | 0.0349552    |
-| 100000     | List      | 0.0306864     |
-| 100000     | Deque      | 0.0232241     |
-| 10000     | Vector      | 0.00680729     |
-| 10000     | List      | 0.00515779     |
-| 10000     | Deque      | 0.00345331     |
-| 1000     | Vector      | 0.0012014     |
-| 1000     | List      | 0.000662875     |
-| 1000     | Deque      | 0.000740708     |
+| 10000000     | Vector      | 2.36889     |
+| 10000000     | List      | 2.55432    |
+| 10000000     | Deque      | 2.28066     |
+| 1000000     | Vector      | 0.22829    |
+| 1000000     | List      | 0.258182     |
+| 1000000     | Deque      | 0.212768     |
+| 100000     | Vector      | 0.0314771    |
+| 100000     | List      | 0.0230683     |
+| 100000     | Deque      | 0.0213107     |
+| 10000     | Vector      | 0.00756633     |
+| 10000     | List      | 0.00307204     |
+| 10000     | Deque      | 0.00224785     |
+| 1000     | Vector      | 0.0011071     |
+| 1000     | List      | 0.000699736     |
+| 1000     | Deque      | 0.000653847     |
 
 <h3>Programos testavimo nuotraukos</h3>
-<img width="1406" height="1038" alt="image" src="https://github.com/user-attachments/assets/9e8e4a2b-dab9-4423-8e3b-471b7e237ca7" />
-<img width="1406" height="1038" alt="image" src="https://github.com/user-attachments/assets/f4bd920d-5ea2-4bef-bb0f-8dc33d8ef6de" />
-<img width="1406" height="1038" alt="image" src="https://github.com/user-attachments/assets/c5989675-0d73-4740-be62-672f488fac67" />
+<img width="695" height="1259" alt="image" src="https://github.com/user-attachments/assets/2821790d-aef5-4263-aa79-571a808f9db3" />
+<img width="695" height="1348" alt="image" src="https://github.com/user-attachments/assets/08e49c65-879d-47d0-9b17-cde5ab35d04b" />
+<img width="695" height="1348" alt="image" src="https://github.com/user-attachments/assets/1604353b-4e80-429e-ab38-ababd5650b09" />
+
+
+
 
 <h2>Išvados</h2>
 <ol>
     <li>Konteinerių tyrime std::deque ir std::vector buvo greičiausi konteineriai.</li>
     <li>Studentų skaidymo į du naujus konteinerius veikė lėčiau nei perkėlimo ir ištrynimo strategija. </li>
-    <li>3-oji testavimo strategija (optimizuota antroji) optimaliausiai veikia tik prie mažų duomenų (<1M), kadangi vėliau programos greitaveikai didesnę įtaką daro atminties pralaidumas.</li>
 </ol>
